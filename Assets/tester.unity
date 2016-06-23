@@ -972,6 +972,22 @@ Prefab:
       propertyPath: m_Name
       value: Rocket
       objectReference: {fileID: 0}
+    - target: {fileID: 11484814, guid: 251c704f197d649baa82e4191692ea68, type: 2}
+      propertyPath: HoverForce
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426342, guid: 251c704f197d649baa82e4191692ea68, type: 2}
+      propertyPath: HoverForce
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447776, guid: 251c704f197d649baa82e4191692ea68, type: 2}
+      propertyPath: HoverForce
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404838, guid: 251c704f197d649baa82e4191692ea68, type: 2}
+      propertyPath: HoverForce
+      value: 70
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 251c704f197d649baa82e4191692ea68, type: 2}
   m_IsPrefabParent: 0
