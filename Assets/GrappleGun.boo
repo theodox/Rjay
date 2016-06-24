@@ -3,26 +3,24 @@ import System.Collections
 
 class GrappleGun (MonoBehaviour):
 
-
-    _Parent as GameObject
+    public _Grapple as GameObject
+    public _Parent as GameObject
     _ParentRB as Rigidbody
     _Xform as Transform
-    _MyRB as Rigidbody
     _hits as (RaycastHit)
     _ready = true
+    _Spring as SpringJoint
 
     def Start():
-        _Parent = gameObject.transform.parent.gameObject
         _ParentRB = _Parent.GetComponent[of Rigidbody]()
-        _MyRB = gameObject.GetComponent[of Rigidbody]()
         _Xform = gameObject.transform
+        _Spring = _Grapple.GetComponent[of SpringJoint]()
 
     def Update():
-        if _ready and Input.GetAxis("Fire1"):
-            _hits = _MyRB.SweepTestAll(_Xform.forward, 500 )
+        if _ready and Input.GetAxis("Jump"):
+            _hits = _ParentRB.SweepTestAll(_Xform.forward, 500 )
             _ready = false
         else:
-            Debug.Log(_ready)
             return
 
         nearest  as Vector3
@@ -36,11 +34,17 @@ class GrappleGun (MonoBehaviour):
                 nearest = h.point
 
         if nearest != Vector3.zero:
-            cube = GameObject.CreatePrimitive(PrimitiveType.Cube)
-            cube.transform.position = nearest
+            _Grapple.transform.position = nearest
+            _Spring.maxDistance = distant
+            _Grapple.SetActive(true)
 
         StartCoroutine(self.Reload())
+        StartCoroutine(self.Drop())
 
     def Reload() as IEnumerator:
         yield WaitForSeconds(2.0)
         _ready = true
+
+    def Drop() as IEnumerator:
+        yield WaitForSeconds(5)
+        _Grapple.SetActive(false)

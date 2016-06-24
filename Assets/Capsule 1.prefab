@@ -38,7 +38,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &108194
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +137,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &131060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 403960}
+  - 114: {fileID: 11495108}
+  - 120: {fileID: 12052342}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &189188
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +180,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &403960
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131060}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
+  m_LocalPosition: {x: 0, y: .458999991, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 444806}
+  m_RootOrder: 7
 --- !u!4 &405788
 Transform:
   m_ObjectHideFlags: 1
@@ -204,6 +233,7 @@ Transform:
   - {fileID: 405788}
   - {fileID: 468184}
   - {fileID: 417078}
+  - {fileID: 403960}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &452288
@@ -692,7 +722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HoverDistance: 4
-  HoverForce: 50
+  HoverForce: 70
   Position: {x: 0, y: -.5, z: 0}
 --- !u!114 &11422310
 MonoBehaviour:
@@ -717,7 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HoverDistance: 4
-  HoverForce: 50
+  HoverForce: 70
   Position: {x: 0, y: -.5, z: 0}
 --- !u!114 &11447776
 MonoBehaviour:
@@ -731,7 +761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HoverDistance: 4
-  HoverForce: 50
+  HoverForce: 70
   Position: {x: 0, y: -.5, z: 0}
 --- !u!114 &11484814
 MonoBehaviour:
@@ -745,7 +775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HoverDistance: 4
-  HoverForce: 50
+  HoverForce: 70
   Position: {x: 0, y: -.5, z: 0}
 --- !u!114 &11486220
 MonoBehaviour:
@@ -761,6 +791,19 @@ MonoBehaviour:
   Thrust: 250
   _Throttle: 0
   _Response: 50
+--- !u!114 &11495108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 543dd86bc17ef472f9f8ffbb94a6c0ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Grapple: {fileID: 0}
+  _Parent: {fileID: 189188}
 --- !u!114 &11496580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -776,6 +819,43 @@ MonoBehaviour:
   _Response: 6
   _Torque: 25
   _Yaw: 12
+--- !u!120 &12052342
+LineRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131060}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 5}
+  m_Parameters:
+    startWidth: 1
+    endWidth: 1
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 4294967295
+  m_UseWorldSpace: 0
 --- !u!124 &12429430
 Behaviour:
   m_ObjectHideFlags: 1
