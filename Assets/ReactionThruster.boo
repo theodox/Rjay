@@ -1,17 +1,29 @@
 import UnityEngine
 import Mathf
 
+
+public struct Vernier():
+
+    public distance as single
+    public thrust  as single
+    public axis  as Vector3
+    public offset as Vector3
+
+    def constructor(distance as single, thrust as single, axis as Vector3, offset as Vector3 ):
+        distance = distance
+        thrust = thrust
+        axis = axis
+        offset = offset
+
 public class ReactionThruster(MonoBehaviour):
 """
-Apply force along a relative vector, falling off with distance.
+Apply force along a multiple vectors, falling off with distance.
 Reaches theoretical max output at 0 distance to hit, falls off
 to no output at distance, by exponent `_Falloff`
 """
 
-    public _Distance = 3.0
     public _Falloff = 3
-    public _Thrust = 100.0
-    public _Axis = Vector3( 0, 0, 1 )
+    public _Thrusters as (Vernier)
 
 
     _rb as Rigidbody
@@ -21,19 +33,26 @@ to no output at distance, by exponent `_Falloff`
     def Start():
         _rb = gameObject.GetComponent[of Rigidbody]()
         _xform = gameObject.transform
-
+        if not _Thrusters:
+            _Thrusters = ( Vernier(4.0, 200.0, Vector3.forward, Vector3.zero), )
     def OnDrawGizmosSelected    ():
         xf = _xform or gameObject.transform
-        Gizmos.color = Color.red
-        Gizmos.DrawRay(
-            xf.position,
-            xf.TransformDirection( _Axis * _Distance)
-            )
+        for t in _Thrusters:
+
+            Gizmos.color = Color.red
+            Gizmos.DrawRay(
+                xf.TransformPoint(t.offset),
+                xf.TransformDirection( t.axis * t.distance)
+                )
 
 
     def FixedUpdate():
-        v = _xform.TransformDirection(_Axis)
 
-        if Physics.Raycast( _xform.position, v, _hit, _Distance):
-            d = 1 - Pow( _hit.distance / _Distance, _Falloff)
-            _rb.AddForce(v * d * _Thrust * -1, ForceMode.Force)
+        for t in _Thrusters:
+
+            v = _xform.TransformDirection(t.axis)
+            p = _xform.TransformPoint(t.offset)
+
+            if Physics.Raycast( p, v, _hit, t.distance):
+                d = 1 - Pow( _hit.distance / t.distance, _Falloff)
+                _rb.AddForceAtPosition(v * d * t.thrust * -1, p, ForceMode.Force)

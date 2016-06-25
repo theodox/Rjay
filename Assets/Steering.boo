@@ -1,7 +1,7 @@
 import UnityEngine
 
 class Steering(MonoBehaviour):
-	
+
 	public _Rudder as single = 0.0
 	public _Response = 1.0
 	public _Torque = 1.0
