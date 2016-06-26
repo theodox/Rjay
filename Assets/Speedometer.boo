@@ -13,8 +13,8 @@ public class Speedometer(MonoBehaviour):
         _xform = gameObject.transform
         _last_position = _xform.position
 
-    def Update():
-        current_pos = _xform.position
+    def FixedUpdate():
+        current_pos = Vector3.ProjectOnPlane(_xform.position, Vector3.up)
         delta = (current_pos - _last_position).magnitude / Time.deltaTime
         avg = 0.0
         for n in range(1, 4):

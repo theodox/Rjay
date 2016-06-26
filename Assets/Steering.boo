@@ -1,9 +1,10 @@
 import UnityEngine
+import bootils
 
 class Steering(MonoBehaviour):
 
+	public _Governor as Governor
 	public _Rudder as single = 0.0
-	public _Response = 1.0
 	public _Torque = 1.0
 	public _Yaw = 0.5
 
@@ -14,10 +15,10 @@ class Steering(MonoBehaviour):
 		xform = gameObject.transform
 		rigid = gameObject.GetComponent[of Rigidbody]()
 
-	def Update():
+	def FixedUpdate():
 		h = Input.GetAxis("Horizontal")
-		_Rudder += h * Time.deltaTime * _Response
-		_Rudder = Clamp(_Rudder, -1.0, 1.0)
+		_Governor.Update(h, Time.deltaTime)
+		_Rudder = _Governor._Value
 		rigid.AddRelativeTorque(Vector3.forward * _Torque * _Rudder * -1);
 		rigid.AddRelativeTorque(Vector3.up * _Yaw * _Rudder * -1);
 
