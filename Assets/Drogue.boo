@@ -20,6 +20,6 @@ public class Drogue(MonoBehaviour):
             if Input.GetAxis("Jump"):
                 _chute_instance  = GameObject.Instantiate(_Chute)
                 _chute_instance.transform.position = gameObject.transform.TransformPoint(_Spawn)
-                joint = _chute_instance.GetComponent[of FixedJoint]()
+                joint = _chute_instance.GetComponent[of SpringJoint]()
                 joint.connectedBody = gameObject.GetComponent[of Rigidbody]()
                 _chute_instance.SetActive(true)
