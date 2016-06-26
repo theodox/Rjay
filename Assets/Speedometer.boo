@@ -7,6 +7,7 @@ public class Speedometer(MonoBehaviour):
     _slices as (single)
     _last_position as Vector3
     _xform as Transform
+    _debug_rect = Rect(10,50, 100, 20)
 
     def Start():
         _slices = (0f, 0f, 0f, 0f, 0f)
@@ -25,3 +26,6 @@ public class Speedometer(MonoBehaviour):
 
         _Speed = avg / 5.0
         _last_position = current_pos
+
+    def OnGUI():
+        GUI.Label(_debug_rect, "Speed {0:f}" % (_Speed,) )
