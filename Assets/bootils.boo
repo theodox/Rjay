@@ -25,7 +25,7 @@ Input historesis
 """
 	public _Decay = .1f
 	public _Range as Vector2
-	
+	public _Friction = .05f
 
 	_inertia = 0f
 	_lastvalues = (0f, 0f, 0f)
@@ -42,6 +42,7 @@ Input historesis
 
 	public  def Update(force as single, interval as single):
 		_inertia -= _Decay * interval * Mathf.Sign(_value)
+		_inertia *= 1 - _Friction
 		_inertia += force * interval
 		_value += _inertia
 		if (_value <= _Range.x):

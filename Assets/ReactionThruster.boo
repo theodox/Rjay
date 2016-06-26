@@ -9,11 +9,11 @@ public struct Vernier():
     public axis  as Vector3
     public offset as Vector3
 
-    def constructor(distance as single, thrust as single, axis as Vector3, offset as Vector3 ):
-        distance = distance
-        thrust = thrust
-        axis = axis
-        offset = offset
+    def constructor(_distance as single, _thrust as single, _axis as Vector3, _offset as Vector3 ):
+        distance = _distance
+        thrust = _thrust
+        axis = _axis
+        offset = _offset
 
 public class ReactionThruster(MonoBehaviour):
 """

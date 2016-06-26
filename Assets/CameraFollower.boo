@@ -1,5 +1,4 @@
 import UnityEngine
-import Mathf
 
 class CameraFollower(MonoBehaviour):
 

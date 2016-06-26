@@ -11,6 +11,8 @@ class Steering(MonoBehaviour):
 	xform as Transform
 	rigid as Rigidbody
 
+	_debug_rect = Rect(10,10, 100, 20)
+
 	def Start():
 		xform = gameObject.transform
 		rigid = gameObject.GetComponent[of Rigidbody]()
@@ -23,7 +25,5 @@ class Steering(MonoBehaviour):
 		rigid.AddRelativeTorque(Vector3.up * _Yaw * _Rudder * -1);
 
 
-	def LateUpdate():
-		_Rudder -= (Sign(_Rudder) *  Time.deltaTime)
-		if Abs(_Rudder) < (Time.deltaTime * .5):
-			_Rudder = 0.0
+	def OnGUI():
+		GUI.Label(_debug_rect, "Rudder {0:f}" % (_Rudder,) )
