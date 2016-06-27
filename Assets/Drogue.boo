@@ -12,12 +12,12 @@ public class Drogue(MonoBehaviour):
 
     def Update():
         if _chute_instance:
-            if not Input.GetAxis("Jump"):
+            if not Input.GetAxis("Chute"):
                 _chute_instance.SetActive(false)
                 _chute_instance = null
             return
         else:
-            if Input.GetAxis("Jump"):
+            if Input.GetAxis("Chute"):
                 _chute_instance  = GameObject.Instantiate(_Chute)
                 _chute_instance.transform.position = gameObject.transform.TransformPoint(_Spawn)
                 joint = _chute_instance.GetComponent[of SpringJoint]()

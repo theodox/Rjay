@@ -24,7 +24,7 @@ class PlayerCam(MonoBehaviour):
         y = Input.GetAxis("CameraYaw")
         p = Input.GetAxis("CameraPitch")
 
-        y += Input.GetAxis("Horizontal") * _TurnCam 
+        y += Input.GetAxis("Horizontal") * _TurnCam
 
         if Abs(y) > .01 :
             _yaw += y * Time.deltaTime * _YawSpeed
