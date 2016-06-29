@@ -12,7 +12,7 @@ public class ChaseCam(HasHud):
 
     _pitch = 10f
     _yaw = 0f
-    _lookahead = 0
+    _lookahead = 0f
     _target_xform as Transform
     _xform as Transform
 
@@ -33,14 +33,14 @@ public class ChaseCam(HasHud):
         else:
             _yaw *= 1 - (_Recenter * Time.deltaTime)
 
-        # todo: clamp contributuion
         turn = Input.GetAxis("Horizontal")
         if Abs(turn) > .01:
-            _lookahead += turn * Time.deltaTime * _YawSpeed
+            _lookahead += turn * Time.deltaTime
         else:
             _lookahead *= 1 - (_Recenter * Time.deltaTime)
 
-        _lookahead = Clamp(_lookahead, -1 * _TurnCam, _TurnCam) / _TurnCam
+        _lookahead = Clamp(_lookahead, -1 , 1)
+        look_yaw =  Pow(_lookahead, 3) * _TurnCam
 
         if Abs(p) > .01 :
             _pitch += -p * Time.deltaTime * _PitchSpeed
@@ -49,8 +49,7 @@ public class ChaseCam(HasHud):
 
         _pitch = Clamp(_pitch, 0f, 30f)
 
-
-        _xform.localEulerAngles = Vector3(_pitch, 0, _yaw + (Pow(_lookahead, 2) * _TurnCam))
-        _target_xform.localPosition = Vector3(0, - 1 * _Distance, 0)
+        _xform.localEulerAngles = Vector3(_pitch, 0, _yaw + look_yaw)
+        _target_xform.localPosition = Vector3(0, - 1 * (_Distance - Abs(_lookahead)), 0)
 
         _hud = "ChaseCam: {0:F}, {1:F}" % (_yaw, _pitch)

@@ -378,7 +378,7 @@ MonoBehaviour:
   _Recenter: 0.75
   _YawSpeed: -70
   _PitchSpeed: -40
-  _TurnCam: 0.1
+  _TurnCam: -15
 --- !u!114 &11435852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -393,7 +393,7 @@ MonoBehaviour:
   _Recenter: 2.5
   _YawSpeed: 75
   _PitchSpeed: 33
-  _TurnCam: 0.12
+  _TurnCam: 15
 --- !u!114 &11455418
 MonoBehaviour:
   m_ObjectHideFlags: 1
