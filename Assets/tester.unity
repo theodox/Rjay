@@ -1137,9 +1137,9 @@ Prefab:
       propertyPath: _Chute
       value: 
       objectReference: {fileID: 1146558015}
-    - target: {fileID: 11435852, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
-      propertyPath: _TurnCam
-      value: 15
+    - target: {fileID: 11490052, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
+      propertyPath: _Yaw
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
