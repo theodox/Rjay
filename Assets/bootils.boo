@@ -84,3 +84,30 @@ public class HasHud(MonoBehaviour):
 	def OnGUI():
 		if _hud:
 			Hud(self, _hud)
+
+public class EffectPool(MonoBehaviour):
+	public _Prefab as GameObject
+	public _PoolSize = 10
+	public _Lifespan = 1f
+
+	_pool = List[of GameObject]()
+	_pointer = -1
+
+	def Start():
+		for n in range(_PoolSize):
+			item = GameObject.Instantiate(_Prefab)
+			item.SetActive(false)
+			_pool.Add(item)
+
+	def Spawn(position as Vector3, rotation as Quaternion):
+		_pointer = (_pointer + 1) % _PoolSize
+		item = _pool[_pointer]
+		t = item.transform
+		t.position = position
+		t.rotation = rotation
+		item.SetActive(true)
+		StartCoroutine(Remove(item))
+
+	def Remove(g as GameObject) as IEnumerator[of object]:
+		yield WaitForSeconds(_Lifespan)
+		g.SetActive(false)
