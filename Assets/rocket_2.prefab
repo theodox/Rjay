@@ -102,6 +102,7 @@ GameObject:
   - 114: {fileID: 11460778}
   - 114: {fileID: 11490052}
   - 114: {fileID: 11498826}
+  - 114: {fileID: 11456954}
   m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Untagged
@@ -412,6 +413,18 @@ MonoBehaviour:
     _value: 0
   Thrust: 400
   _Response: 0.25
+--- !u!114 &11456954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a9f535c1bed4bf3afd48d6f95146c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _CrashForce: 50000
 --- !u!114 &11460778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -442,7 +455,7 @@ MonoBehaviour:
     _value: 0
   _Rudder: 0
   _Torque: 50
-  _Yaw: 0
+  _Yaw: 18
 --- !u!114 &11498826
 MonoBehaviour:
   m_ObjectHideFlags: 1
