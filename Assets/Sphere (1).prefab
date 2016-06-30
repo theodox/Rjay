@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3387334}
   - 23: {fileID: 2335780}
   m_Layer: 0
-  m_Name: scrape effect
+  m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
