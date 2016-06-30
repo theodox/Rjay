@@ -1,6 +1,6 @@
 import UnityEngine
 
-public class Speedometer(MonoBehaviour):
+public class Speedometer(HasHud):
 
     public _Speed as single
 
@@ -27,5 +27,4 @@ public class Speedometer(MonoBehaviour):
         _Speed = avg / 5.0
         _last_position = current_pos
 
-    def OnGUI():
-        GUI.Label(_debug_rect, "Speed {0:f}" % (_Speed,) )
+        _hud = "Speed {0:f}" % (_Speed,)

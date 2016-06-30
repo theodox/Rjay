@@ -1,7 +1,7 @@
 import UnityEngine
 import bootils
 
-class Steering(MonoBehaviour):
+class Steering(HasHud):
 
 	public _Governor as Governor
 	public _Rudder as single = 0.0
@@ -24,6 +24,4 @@ class Steering(MonoBehaviour):
 		rigid.AddRelativeTorque(Vector3.forward * _Torque * _Rudder * -1);
 		rigid.AddRelativeTorque(Vector3.up * _Yaw * _Rudder * -1);
 
-
-	def OnGUI():
-		GUI.Label(_debug_rect, "Rudder {0:f}" % (_Rudder,) )
+		_hud = "Rudder {0:f}" % (_Rudder,)

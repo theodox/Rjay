@@ -1,7 +1,7 @@
 namespace bootils
 import UnityEngine
 import Mathf
-
+import System.Collections.Generic
 
 
 public static def SendSystemMessage(message as string, arg as object, options as SendMessageOptions ):
@@ -56,3 +56,58 @@ Input historesis
 		_lastvalues[1] = _lastvalues[2]
 		_lastvalues[2] = _value
 		_derivative = _lastvalues[0] + _lastvalues[1] / _lastvalues[1] + _lastvalues[2]
+
+
+
+public class HasHud(MonoBehaviour):
+
+	static _rects = Dictionary[of int, Rect]()
+	static _width = 200
+	static _height = 20
+	static _left = 20
+
+
+	_hud as string
+
+	public static def Register(g as Component):
+		count = 1 +  _rects.Count
+		_rects[g.GetInstanceID()] =  Rect(_left,  _height * count,  _width,  _height)
+		Debug.Log("Register {0}  @ {1}" % (g, count))
+
+	public static def Hud (g as Component, str as string):
+		r = _rects[g.GetInstanceID()]
+		GUI.Label(r, str)
+
+	def Awake():
+		Register(self)
+
+	def OnGUI():
+		if _hud:
+			Hud(self, _hud)
+
+public class EffectPool(MonoBehaviour):
+	public _Prefab as GameObject
+	public _PoolSize = 10
+	public _Lifespan = 1f
+
+	_pool = List[of GameObject]()
+	_pointer = -1
+
+	def Start():
+		for n in range(_PoolSize):
+			item = GameObject.Instantiate(_Prefab)
+			item.SetActive(false)
+			_pool.Add(item)
+
+	def Spawn(position as Vector3, rotation as Quaternion):
+		_pointer = (_pointer + 1) % _PoolSize
+		item = _pool[_pointer]
+		t = item.transform
+		t.position = position
+		t.rotation = rotation
+		item.SetActive(true)
+		StartCoroutine(Remove(item))
+
+	def Remove(g as GameObject) as IEnumerator[of object]:
+		yield WaitForSeconds(_Lifespan)
+		g.SetActive(false)

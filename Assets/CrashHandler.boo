@@ -1,15 +1,22 @@
 import UnityEngine
 import System.Collections
+import Mathf
 
 class CrashHandler(MonoBehaviour):
 
+    public _CrashForce = 2000
 
+    _rigidbody as Rigidbody
 
-  def OnCollisionEnter(collision as Collision):
+    def Start():
+        _rigidbody = gameObject.GetComponent[of Rigidbody]()
 
-    StartCoroutine(self.Crash())
+    def OnCollisionEnter(collision as Collision):
+        impact = collision.impulse.magnitude / Time.deltaTime
+        if impact > _CrashForce:
+            bootils.SendSystemMessage("OnCrash", collision)
+        else:
+            bootils.SendSystemMessage("OnScrape", collision)
 
-  private def Crash() as IEnumerator:
-    yield  WaitForSeconds(2.0)
-    
-   	bootils.SendSystemMessage("OnCrash")
+    private def Crash() as IEnumerator:
+        yield  WaitForSeconds(.2)
