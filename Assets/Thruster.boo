@@ -1,7 +1,7 @@
 import UnityEngine
 import bootils
 
-class Thruster(MonoBehaviour):
+class Thruster(HasHud):
 
 	public _Governor as Governor
 	public Thrust = 100.0
@@ -10,7 +10,6 @@ class Thruster(MonoBehaviour):
 	xform as Transform
 	stick as single
 
-	_debug_rect = Rect(10,30, 240, 20)
 
 	def Start():
 		rigid = gameObject.GetComponent[of Rigidbody]()
@@ -21,6 +20,4 @@ class Thruster(MonoBehaviour):
 		stick = Input.GetAxis("Vertical")
 		_Governor.Update(stick * _Response, Time.deltaTime)
 		rigid.AddRelativeForce(xform.forward * (_Governor._Value * Thrust * -1), ForceMode.Force)
-
-	def OnGUI():
-		GUI.Label(_debug_rect, "Engine {0:f}  Stick {1:f}" % (_Governor._Value, stick ) )
+		_hud = "Engine {0:f}  Stick {1:f}" % (_Governor._Value, stick ) 
