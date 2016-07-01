@@ -24,6 +24,7 @@ public class Shooter(EffectPool):
         yield WaitForSeconds(_Pause)
         _ready = true
 
+
     def Fire():
         t = gameObject.transform
         Spawn(t.TransformPoint(_Aim * _Offset), t.rotation)
@@ -31,3 +32,9 @@ public class Shooter(EffectPool):
         rb = bullet.GetComponent[of Rigidbody]()
         rb.velocity = _rb.velocity
         rb.AddForce(t.TransformVector(_Aim   * _Speed))
+        StartCoroutine(delay_start (bullet))
+
+    def delay_start(g as GameObject) as IEnumerator:
+        yield WaitForSeconds(1)
+        comp = g.AddComponent[of Grapple]()
+        comp._Owner = gameObject
