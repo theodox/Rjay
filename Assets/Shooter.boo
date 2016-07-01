@@ -15,7 +15,7 @@ public class Shooter(EffectPool):
         _rb = gameObject.GetComponent[of Rigidbody]()
 
     def Update():
-        if _ready and Input.GetAxis("Fire1"):
+        if _ready and Input.GetAxis("Fire1") > 0.5f:
             Fire()
             _ready = false
             StartCoroutine(Reset())
