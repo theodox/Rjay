@@ -93,7 +93,7 @@ public class EffectPool(MonoBehaviour):
 	_pool = List[of GameObject]()
 	_pointer = -1
 
-	def Start():
+	virtual def Start():
 		for n in range(_PoolSize):
 			item = GameObject.Instantiate(_Prefab)
 			item.SetActive(false)
