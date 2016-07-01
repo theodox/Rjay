@@ -7,7 +7,6 @@ class Grapple(MonoBehaviour):
 
     _anchor as Rigidbody
     _target as Rigidbody
-    _joint  as ConfigurableJoint
 
 
 
@@ -15,21 +14,23 @@ class Grapple(MonoBehaviour):
     def Start():
         _anchor = gameObject.GetComponent[of Rigidbody]()
         _target = _Owner.GetComponent[of Rigidbody]()
-        _joint = gameObject.GetComponent[of ConfigurableJoint]()
-        _joint.connectedBody = _target
-        dist = (gameObject.transform.position - _Owner.transform.position).magnitude + 0.5f
-        _joint.linearLimit.limit = dist
-        _joint.linearLimit.bounciness = 0.5f
-        _joint.linearLimit.contactDistance = dist
-        _anchor.isKinematic = true
-        _joint.xMotion = 0
-        _joint.yMotion = 0
-        _joint.zMotion = 0
+        dist = (gameObject.transform.position - _Owner.transform.position).magnitude + 4f
+        gameObject.GetComponent[of LineDrawer]()._Target = _Owner.transform
+        for j in gameObject.GetComponents[of ConfigurableJoint]():
+            j.connectedBody = _target
+            j.linearLimit.limit = dist
+            j.linearLimit.bounciness = 0.1f
+            j.linearLimit.contactDistance = dist / 2f
+            _anchor.isKinematic = true
+            j.xMotion = 1
+            j.yMotion = 1
+            j.zMotion = 1
 
     def OnDisable():
         _anchor.isKinematic = false
+        for j in gameObject.GetComponents[of ConfigurableJoint]():
+            j.connectedBody = null
+            j.xMotion = 2
+            j.yMotion = 2
+            j.zMotion = 2
         gameObject.Destroy(self)
-        _joint.connectedBody = null
-        _joint.xMotion = 2
-        _joint.yMotion = 2
-        _joint.zMotion = 2

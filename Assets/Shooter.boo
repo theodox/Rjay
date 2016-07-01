@@ -35,6 +35,6 @@ public class Shooter(EffectPool):
         StartCoroutine(delay_start (bullet))
 
     def delay_start(g as GameObject) as IEnumerator:
-        yield WaitForSeconds(1)
+        yield WaitForSeconds(.5)
         comp = g.AddComponent[of Grapple]()
         comp._Owner = gameObject
