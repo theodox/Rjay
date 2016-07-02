@@ -14,3 +14,7 @@ public class GrappleAnchor(MonoBehaviour):
         _rb.isKinematic = true
         comp = gameObject.AddComponent[of Grapple]()
         comp._Owner = _Owner
+
+    def Update():
+        if Input.GetAxis("Unhook"):
+            gameObject.SetActive(false)

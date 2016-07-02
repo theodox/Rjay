@@ -6,6 +6,7 @@ public class Shooter(EffectPool):
     public _Aim as Vector3
     public _Offset = 1
     public _Pause = 1f
+    public _Axis = "Fire1"
 
     _ready = true
     _rb as Rigidbody
@@ -16,7 +17,7 @@ public class Shooter(EffectPool):
 
 
     def Update():
-        if _ready and Input.GetAxis("Fire1") > 0.5f:
+        if _ready and Input.GetAxis(_Axis) > 0.5f:
             Fire()
             _ready = false
             StartCoroutine(Reset())
