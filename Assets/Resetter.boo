@@ -3,15 +3,15 @@ import UnityEngine
 
 class Resetter(MonoBehaviour):
 
+    public _ResetHeight = 2f
+    public _ResetAngle = Quaternion.AngleAxis(90, Vector3.right)
 
     def Update():
         if Input.GetAxis("Cancel"):
 
             rb = gameObject.GetComponent[of Rigidbody]()
             rb.isKinematic = true
-
-            gameObject.transform.position = gameObject.transform.position + Vector3( 0, 1, 0 )
-
-            gameObject.transform.rotation = Quaternion.EulerAngles(90,0,0)
-
+            p = gameObject.transform.position
+            gameObject.transform.position = Vector3(p.x, _ResetHeight, p.z)
+            gameObject.transform.rotation = _ResetAngle
             rb.isKinematic = false
