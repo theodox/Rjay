@@ -76,6 +76,7 @@ public class HasHud(MonoBehaviour):
 
 	public static def Hud (g as Component, str as string):
 		r = _rects[g.GetInstanceID()]
+		GUI.backgroundColor = Color.black
 		GUI.Label(r, str)
 
 	def Awake():

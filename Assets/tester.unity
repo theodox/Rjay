@@ -1889,6 +1889,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 431716973}
   m_RootOrder: 1
+--- !u!1 &1983428093 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 196218, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
+  m_PrefabInternal: {fileID: 2133708739}
+--- !u!114 &1983428094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1983428093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202e6dd4bcdd74a06ad9f3819137dc32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Pitch: 1000000
+  _Roll: -1000000
+  _Response: 1
 --- !u!1001 &2036408497
 Prefab:
   m_ObjectHideFlags: 0
@@ -2087,6 +2105,18 @@ Prefab:
     - target: {fileID: 11490052, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
       propertyPath: _Yaw
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430106, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
+      propertyPath: m_Drag
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430106, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
+      propertyPath: m_AngularDrag
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430106, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
