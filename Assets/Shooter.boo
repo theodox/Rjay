@@ -14,6 +14,7 @@ public class Shooter(EffectPool):
         super()
         _rb = gameObject.GetComponent[of Rigidbody]()
 
+
     def Update():
         if _ready and Input.GetAxis("Fire1") > 0.5f:
             Fire()
@@ -32,9 +33,5 @@ public class Shooter(EffectPool):
         rb = bullet.GetComponent[of Rigidbody]()
         rb.velocity = _rb.velocity
         rb.AddForce(t.TransformVector(_Aim   * _Speed))
-        StartCoroutine(delay_start (bullet))
-
-    def delay_start(g as GameObject) as IEnumerator:
-        yield WaitForSeconds(.5)
-        comp = g.AddComponent[of Grapple]()
-        comp._Owner = gameObject
+        anchor = bullet.GetComponent[of GrappleAnchor]()
+        anchor._Owner = gameObject

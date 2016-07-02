@@ -13,7 +13,7 @@ GameObject:
   - 23: {fileID: 2306546}
   - 54: {fileID: 5477468}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: fin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,6 +124,7 @@ GameObject:
   - 114: {fileID: 11456954}
   - 138: {fileID: 13809210}
   - 114: {fileID: 11457990}
+  - 114: {fileID: 11482610}
   m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Untagged
@@ -384,9 +385,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102186}
   serializedVersion: 2
-  m_Mass: 0.1
-  m_Drag: 0.1
-  m_AngularDrag: 0.05
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -453,7 +454,7 @@ MonoBehaviour:
     thrust: 175
     axis: {x: 0, y: 0, z: 1}
     offset: {x: -2, y: -1, z: 0}
-  - distance: 4.5
+  - distance: 4
     thrust: 350
     axis: {x: 0, y: 0, z: 1}
     offset: {x: 0, y: 1, z: 0}
@@ -533,10 +534,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Prefab: {fileID: 0}
   _PoolSize: 3
-  _Lifespan: 3
-  _Speed: 125
-  _Aim: {x: 0.707, y: 0.707, z: 0}
-  _Offset: 1
+  _Lifespan: 4
+  _Speed: 60
+  _Aim: {x: 1, y: 0, z: 0}
+  _Offset: 2
   _Pause: 1
 --- !u!114 &11460778
 MonoBehaviour:
@@ -550,6 +551,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Speed: 0
+--- !u!114 &11482610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75e6b5d00b8c48ed98a3155e959bb58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11490052
 MonoBehaviour:
   m_ObjectHideFlags: 1

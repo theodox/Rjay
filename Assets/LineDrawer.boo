@@ -9,7 +9,10 @@ public class LineDrawer(MonoBehaviour):
     def Start():
         _Line = gameObject.GetComponent[of LineRenderer]()
         _Xform = gameObject.transform
-        
+
     def Update():
         _Line.SetPosition(0, _Xform.position)
-        _Line.SetPosition(1, _Target.position)
+        if _Target:
+            _Line.SetPosition(1, _Target.position)
+        else:
+            _Line.SetPosition(1, _Xform.position)
