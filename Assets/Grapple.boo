@@ -20,7 +20,7 @@ class Grapple(MonoBehaviour):
             j.connectedBody = _target
             j.linearLimit.limit = dist
             j.linearLimit.bounciness = 0.1f
-            j.linearLimit.contactDistance = dist / 2f
+            j.linearLimit.contactDistance = 2
             _anchor.isKinematic = true
             j.xMotion = 1
             j.yMotion = 1

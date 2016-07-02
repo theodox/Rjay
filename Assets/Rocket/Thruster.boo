@@ -17,7 +17,7 @@ class Thruster(HasHud):
 
 	def FixedUpdate():
 		# todo  - use an intersction test instead of height
-		stick = Input.GetAxis("Vertical")
+		stick = Input.GetAxis("Throttle")
 		_Governor.Update(stick * _Response, Time.deltaTime)
 		rigid.AddRelativeForce(xform.forward * (_Governor._Value * Thrust * -1), ForceMode.Force)
-		_hud = "Engine {0:f}  Stick {1:f}" % (_Governor._Value, stick ) 
+		_hud = "Engine {0:f}  Stick {1:f}" % (_Governor._Value, stick )

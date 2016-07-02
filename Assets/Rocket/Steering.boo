@@ -4,14 +4,12 @@ import bootils
 class Steering(HasHud):
 
 	public _Governor as Governor
-	public _Rudder as single = 0.0
-	public _Torque = 1.0
-	public _Yaw = 0.5
-
+	public _PitchGovernor as Governor
+	public _Torque = 1.0f
+	public _Yaw = 0.5f
+	public _Pitch = 0.5f
 	xform as Transform
 	rigid as Rigidbody
-
-	_debug_rect = Rect(10,10, 100, 20)
 
 	def Start():
 		xform = gameObject.transform
@@ -19,9 +17,13 @@ class Steering(HasHud):
 
 	def FixedUpdate():
 		h = Input.GetAxis("Horizontal")
+		v = Input.GetAxis("Vertical")
 		_Governor.Update(h, Time.deltaTime)
+		_PitchGovernor.Update(v, Time.deltaTime)
 		_Rudder = _Governor._Value
+		_Aileron = _PitchGovernor._Value
 		rigid.AddRelativeTorque(Vector3.forward * _Torque * _Rudder * -1);
 		rigid.AddRelativeTorque(Vector3.up * _Yaw * _Rudder * -1);
+		rigid.AddRelativeTorque(Vector3.right  * _Aileron * _Pitch * -1)
 
-		_hud = "Rudder {0:f}" % (_Rudder,)
+		_hud = "Rudder {0:f} Aileron {1:f}" % (_Rudder,_Aileron)
