@@ -14,10 +14,10 @@ public class Gyroscope(HasHud):
         _rigidbody = gameObject.GetComponent[of Rigidbody]()
         _xform = gameObject.transform
 
-    def Update():
-        pitch_off = Pow( Vector3.Dot(_xform.up, Vector3.up), _Response)
-        roll_off = Pow ( Vector3.Dot(_xform.right, Vector3.up), _Response)
-        _rigidbody.AddRelativeTorque(Vector3.right * pitch_off * _Pitch)
+    def FixedUpdate():
+        pitch_off = Pow( Vector3.Dot(_xform.up, Vector3.up), _Response) / Time.smoothDeltaTime
+        roll_off = Pow ( Vector3.Dot(_xform.right, Vector3.up), _Response) / Time.smoothDeltaTime
+        _rigidbody.AddRelativeTorque(Vector3.right * pitch_off * _Pitch )
         _rigidbody.AddRelativeTorque(Vector3.up *  roll_off * _Roll)
 
         _hud = "pitch {0:f} roll {1:f}" % (pitch_off * _Pitch, roll_off * _Roll)
