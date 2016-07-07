@@ -373,8 +373,8 @@ Rigidbody:
   m_GameObject: {fileID: 196218}
   serializedVersion: 2
   m_Mass: 50
-  m_Drag: 0.2
-  m_AngularDrag: 0.2
+  m_Drag: 0.15
+  m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -489,10 +489,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991d4a6d5ed424dc4996bdbff5659da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Recenter: 2.5
-  _YawSpeed: 75
-  _PitchSpeed: 33
-  _TurnCam: 15
+  _Reference: {fileID: 196218}
+  _Recenter: 6
+  _YawSpeed: 3
+  _PitchSpeed: 2
+  _TurnCam: 0.2
+  _PreservePitch: 0.5
+  _PreserverRoll: 0.25
 --- !u!114 &11455418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -565,9 +568,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202e6dd4bcdd74a06ad9f3819137dc32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Pitch: 1000
-  _Roll: -1000
-  _Response: 1
+  _Pitch: 400
+  _Roll: 400
+  _Response: 3
 --- !u!114 &11482610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -593,17 +596,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Governor:
-    _Decay: 0.2
-    _Range: {x: -1, y: 1}
-    _Friction: 0.05
-    _value: 0
-  _PitchGovernor:
     _Decay: 0.5
     _Range: {x: -1, y: 1}
-    _Friction: 0.05
+    _Friction: 0.1
     _value: 0
-  _Torque: 50
-  _Yaw: 10
+  _PitchGovernor:
+    _Decay: 0.6
+    _Range: {x: -1, y: 1}
+    _Friction: 0.1
+    _value: 0
+  _Roll: 10
+  _Yaw: 100
   _Pitch: 50
 --- !u!114 &11493468
 MonoBehaviour:

@@ -17,7 +17,13 @@ public static def SendSystemMessage(message as string, arg):
 public static def SendSystemMessage(message as string):
 	SendSystemMessage(message,  SendMessageOptions.DontRequireReceiver)
 
-
+[Extension]
+public static def ScaleBy(me as Vector3, other as Vector3):
+	return Vector3(
+		me.x * other.x,
+		me.y * other.y,
+		me.z * other.z
+		)
 
 public class Governor():
 """
