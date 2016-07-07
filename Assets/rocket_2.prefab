@@ -249,7 +249,7 @@ Camera:
     height: 1
   near clip plane: 1
   far clip plane: 1000
-  field of view: 40
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -283,7 +283,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 45
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -372,7 +372,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196218}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 500
   m_Drag: 0.15
   m_AngularDrag: 0.5
   m_UseGravity: 1
@@ -449,15 +449,15 @@ MonoBehaviour:
   _Falloff: 1
   _Thrusters:
   - distance: 4
-    thrust: 175
+    thrust: 1750
     axis: {x: 0, y: 0, z: 1}
     offset: {x: 2, y: -1, z: 0}
   - distance: 4
-    thrust: 175
+    thrust: 1750
     axis: {x: 0, y: 0, z: 1}
     offset: {x: -2, y: -1, z: 0}
   - distance: 4
-    thrust: 350
+    thrust: 3500
     axis: {x: 0, y: 0, z: 1}
     offset: {x: 0, y: 1, z: 0}
 --- !u!114 &11406752
@@ -512,7 +512,7 @@ MonoBehaviour:
     _Range: {x: 0, y: 1}
     _Friction: 0.05
     _value: 0
-  Thrust: 600
+  Thrust: 8000
   _Response: 0.5
 --- !u!114 &11456954
 MonoBehaviour:
@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a9f535c1bed4bf3afd48d6f95146c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CrashForce: 50000
+  _CrashForce: 500000
 --- !u!114 &11457990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -541,7 +541,7 @@ MonoBehaviour:
   _PoolSize: 2
   _Lifespan: 4
   _Speed: 60
-  _Aim: {x: 1, y: -0.1, z: 0}
+  _Aim: {x: 1, y: -1, z: 0}
   _Offset: 2
   _Pause: 1
   _Axis: FireRight
@@ -568,8 +568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202e6dd4bcdd74a06ad9f3819137dc32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Pitch: 450
-  _Roll: 450
+  _Pitch: 1000
+  _Roll: 1400
   _Response: 3
 --- !u!114 &11482610
 MonoBehaviour:
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Governor:
-    _Decay: 0.5
+    _Decay: 0.9
     _Range: {x: -1, y: 1}
     _Friction: 0.1
     _value: 0
@@ -606,7 +606,7 @@ MonoBehaviour:
     _Friction: 0.1
     _value: 0
   _Roll: 10
-  _Yaw: 100
+  _Yaw: 75
   _Pitch: 50
 --- !u!114 &11493468
 MonoBehaviour:
@@ -623,7 +623,7 @@ MonoBehaviour:
   _PoolSize: 2
   _Lifespan: 4
   _Speed: 60
-  _Aim: {x: -1, y: -0.1, z: 0}
+  _Aim: {x: -1, y: -1, z: 0}
   _Offset: 2
   _Pause: 1
   _Axis: FireLeft
