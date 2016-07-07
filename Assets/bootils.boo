@@ -62,9 +62,9 @@ Input historesis
 public class HasHud(MonoBehaviour):
 
 	static _rects = Dictionary[of int, Rect]()
-	static _width = 200
-	static _height = 20
-	static _left = 20
+	static _width = 240
+	static _height = 28
+	static _left = 14
 
 
 	_hud as string
@@ -77,7 +77,7 @@ public class HasHud(MonoBehaviour):
 	public static def Hud (g as Component, str as string):
 		r = _rects[g.GetInstanceID()]
 		GUI.backgroundColor = Color.black
-		GUI.Label(r, str)
+		GUI.Box(r, str)
 
 	def Awake():
 		Register(self)

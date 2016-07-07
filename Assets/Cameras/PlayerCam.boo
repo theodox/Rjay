@@ -45,7 +45,7 @@ class PlayerCam(MonoBehaviour):
         else:
             _pitch *= 1 - (_Recenter * Time.deltaTime)
 
+
         _xform.localEulerAngles = Vector3(_pitch, _yaw + look_yaw, 0)
 
-    def OnGUI():
-        GUI.Label(_debug_rect, "  y {0:f} p {1:f}" % (y, p) )
+        
