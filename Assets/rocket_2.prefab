@@ -568,8 +568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202e6dd4bcdd74a06ad9f3819137dc32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Pitch: 400
-  _Roll: 400
+  _Pitch: 450
+  _Roll: 450
   _Response: 3
 --- !u!114 &11482610
 MonoBehaviour:
@@ -665,7 +665,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 1
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
