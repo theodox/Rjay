@@ -1,7 +1,7 @@
 import UnityEngine
 import Mathf
 
-class PlayerCam(MonoBehaviour):
+class PlayerCam(HasHud):
 
     public _Reference as GameObject
 
@@ -16,45 +16,39 @@ class PlayerCam(MonoBehaviour):
     _lookahead = 0f
     _yaw = 0f
     _pitch = 0f
+
     _xform as Transform
     _reference as Transform
 
-    _plane = Vector3(1,0,1)
-
-    y = 0f
-    p = 0f
-    _debug_rect = Rect(10,70, 240, 20)
+    final _deadzone = 0.05f
+    final _plane = Vector3(1,0,1)
 
     def Start():
         _xform = gameObject.transform
         _reference = _Reference.transform
 
-    def Update():
-
-
-
+    def LateUpdate():
         y = Input.GetAxis("CameraYaw")
         p = Input.GetAxis("CameraPitch")
         turn = Input.GetAxis("Horizontal")
 
-        if Abs(y) > .01 :
+        if Abs(y) > _deadzone :
             _yaw += y * Time.deltaTime * _YawSpeed
         else:
             _yaw *= 1 - (_Recenter * Time.deltaTime)
 
-
-        if Abs(turn) > .01:
+        if Abs(turn) > _deadzone:
             _lookahead += turn * Time.deltaTime * _TurnCam
         else:
             _lookahead *= 1 - (_Recenter * Time.deltaTime)
 
-
-        ref_right = _reference.right * (_yaw + _lookahead)
-
-        if Abs(p) > .01 :
+        if Abs(p) > _deadzone :
             _pitch += -p * Time.deltaTime * _PitchSpeed
         else:
             _pitch *= 1 - (_Recenter * Time.deltaTime)
+
+        ref_right = _reference.right * (_yaw + _lookahead)
+
 
 
         ref_forward = (_reference.up  + ref_right + Vector3 (0, _pitch, 0)).normalized
@@ -73,6 +67,6 @@ class PlayerCam(MonoBehaviour):
 
         up = Vector3.Cross(forward, right)
 
-        q = Quaternion.identity
-        q.SetLookRotation(forward, up)
-        _xform.rotation = q
+        _xform.rotation = Quaternion.LookRotation(forward, up)
+
+        _hud = "ChaseCam: {0:F}, {1:F}" % (_yaw, _pitch)
