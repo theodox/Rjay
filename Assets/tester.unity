@@ -1471,8 +1471,8 @@ ConfigurableJoint:
   m_ConnectedBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
-  m_AutoConfigureConnectedAnchor: 0
-  m_ConnectedAnchor: {x: 0, y: 1, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0, y: 2, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 1, y: 0, z: 0}
   m_XMotion: 2
@@ -1564,7 +1564,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 0
-  m_ConnectedAnchor: {x: 0, y: -1, z: 0}
+  m_ConnectedAnchor: {x: 0, y: -2, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 1, y: 1, z: 0}
   m_XMotion: 2
@@ -2018,18 +2018,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 11498826, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
-      propertyPath: _Chute
-      value: 
-      objectReference: {fileID: 1146558015}
-    - target: {fileID: 11493468, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
-      propertyPath: _Prefab
-      value: 
-      objectReference: {fileID: 1602490763}
     - target: {fileID: 11457990, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
       propertyPath: _Prefab
       value: 
       objectReference: {fileID: 1602490763}
+    - target: {fileID: 11493468, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
+      propertyPath: _Prefab
+      value: 
+      objectReference: {fileID: 1602490763}
+    - target: {fileID: 11498826, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
+      propertyPath: _Chute
+      value: 
+      objectReference: {fileID: 1146558015}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
   m_IsPrefabParent: 0

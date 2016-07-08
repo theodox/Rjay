@@ -33,4 +33,5 @@ class Grapple(MonoBehaviour):
             j.xMotion = 2
             j.yMotion = 2
             j.zMotion = 2
+        _target.inertiaTensorRotation = Quaternion.identity
         gameObject.Destroy(self)

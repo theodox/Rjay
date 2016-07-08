@@ -372,7 +372,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196218}
   serializedVersion: 2
-  m_Mass: 500
+  m_Mass: 450
   m_Drag: 0.15
   m_AngularDrag: 0.5
   m_UseGravity: 1
@@ -387,9 +387,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102186}
   serializedVersion: 2
-  m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0
+  m_Mass: 1
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -541,7 +541,7 @@ MonoBehaviour:
   _PoolSize: 2
   _Lifespan: 4
   _Speed: 60
-  _Aim: {x: 1, y: -1, z: 0}
+  _Aim: {x: 1, y: 1, z: 0}
   _Offset: 2
   _Pause: 1
   _Axis: FireRight
@@ -570,6 +570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Pitch: 1000
   _Roll: 1400
+  _Slew: 100
   _Response: 3
 --- !u!114 &11482610
 MonoBehaviour:
@@ -605,9 +606,9 @@ MonoBehaviour:
     _Range: {x: -1, y: 1}
     _Friction: 0.1
     _value: 0
-  _Roll: 10
-  _Yaw: 75
-  _Pitch: 50
+  _Roll: 500
+  _Yaw: 300
+  _Pitch: 200
 --- !u!114 &11493468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -623,7 +624,7 @@ MonoBehaviour:
   _PoolSize: 2
   _Lifespan: 4
   _Speed: 60
-  _Aim: {x: -1, y: -1, z: 0}
+  _Aim: {x: -1, y: 1, z: 0}
   _Offset: 2
   _Pause: 1
   _Axis: FireLeft
