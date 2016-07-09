@@ -22,8 +22,8 @@ class Steering(HasHud):
 		_PitchGovernor.Update(v, Time.deltaTime)
 		_Rudder = _Governor._Value
 		_Aileron = _PitchGovernor._Value
-		rigid.AddRelativeTorque(Vector3.forward * _Yaw * _Rudder * -1);
-		rigid.AddRelativeTorque(Vector3.up * _Roll * _Rudder * -1);
-		rigid.AddRelativeTorque(Vector3.right  * _Aileron * _Pitch * -1)
+		rigid.AddRelativeTorque(Vector3.up * _Yaw * _Rudder * Time.deltaTime)
+		rigid.AddRelativeTorque(Vector3.forward * _Roll * _Rudder * -1 * Time.deltaTime)
+		rigid.AddRelativeTorque(Vector3.right  * _Aileron * _Pitch * -1 * Time.deltaTime)
 
 		_hud = "Rudder {0:f} Aileron {1:f}" % (_Rudder,_Aileron)

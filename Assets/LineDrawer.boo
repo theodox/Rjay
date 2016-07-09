@@ -13,6 +13,14 @@ public class LineDrawer(MonoBehaviour):
     def Update():
         _Line.SetPosition(0, _Xform.position)
         if _Target:
-            _Line.SetPosition(1, _Target.position)
+            counter = 0
+            for c as ConfigurableJoint in  gameObject.GetComponents[of ConfigurableJoint]():
+                counter += 1
+                _Line.SetPosition(counter, _Target.TransformPoint(c.connectedAnchor))
+
+            _Line.SetPosition(counter + 1, _Xform.position)
+            _Line.SetVertexCount(4)
+
         else:
             _Line.SetPosition(1, _Xform.position)
+            _Line.SetVertexCount(2)

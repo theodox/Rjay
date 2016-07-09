@@ -51,7 +51,7 @@ class PlayerCam(HasHud):
 
 
 
-        ref_forward = (_reference.up  + ref_right + Vector3 (0, _pitch, 0)).normalized
+        ref_forward = (_reference.forward  + ref_right + Vector3 (0, _pitch, 0)).normalized
 
         forward = Vector3.Lerp(
              ref_forward.ScaleBy(_plane).normalized,

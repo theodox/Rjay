@@ -55,4 +55,4 @@ to no output at distance, by exponent `_Falloff`
 
             if Physics.Raycast( p, v, _hit, t.distance):
                 d = 1 - Pow( _hit.distance / t.distance, _Falloff)
-                _rb.AddForceAtPosition(v * d * t.thrust * -1, p, ForceMode.Force)
+                _rb.AddForceAtPosition(v * d * t.thrust * -1 * Time.deltaTime, p, ForceMode.Force)

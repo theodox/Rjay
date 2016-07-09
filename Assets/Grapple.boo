@@ -17,6 +17,7 @@ class Grapple(MonoBehaviour):
         dist = (gameObject.transform.position - _Owner.transform.position).magnitude + 4f
         gameObject.GetComponent[of LineDrawer]()._Target = _Owner.transform
         for j in gameObject.GetComponents[of ConfigurableJoint]():
+            j.autoConfigureConnectedAnchor = false
             j.connectedBody = _target
             j.linearLimit.limit = dist
             j.linearLimit.bounciness = 0.1f
