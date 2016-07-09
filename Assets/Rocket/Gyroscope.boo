@@ -44,7 +44,7 @@ public class Gyroscope(HasHud):
         _rb.drag = Lerp(_DragRange.x, _DragRange.y, Abs(slew))
 
         t = Vector3 ( pitch * _Pitch, slew * _Slew, roll * _Roll * -1)
-        _rb.AddTorque(t)
+        _rb.AddTorque(t * Time.deltaTime)
 
         _hud = "r {0:f} p {1:f} y {2:f}" % (roll, pitch, slew)
 
