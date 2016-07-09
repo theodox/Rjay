@@ -318,10 +318,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135858}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -2}
+  m_LocalRotation: {x: 0.04801943, y: 0, z: 0, w: 0.9988464}
+  m_LocalPosition: {x: 0, y: 1.3170002, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.5046997, y: 0, z: 0}
   m_Children:
   - {fileID: 457714}
   m_Father: {fileID: 430266}
@@ -661,19 +661,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Falloff: 1
   _Thrusters:
-  - distance: 4
+  - distance: 3.5
     thrust: 90000
     axis: {x: 0, y: -1, z: 0}
     offset: {x: 0.5, y: 0, z: -1}
-  - distance: 4
+  - distance: 3.5
     thrust: 90000
     axis: {x: 0, y: -1, z: 0}
     offset: {x: -0.5, y: 0, z: -1}
-  - distance: 4
+  - distance: 3.5
     thrust: 90000
     axis: {x: 0, y: -1, z: 0}
     offset: {x: 0.5, y: 0, z: 1}
-  - distance: 4
+  - distance: 3.5
     thrust: 90000
     axis: {x: 0, y: -1, z: 0}
     offset: {x: -0.5, y: 0, z: 1}
@@ -731,7 +731,8 @@ MonoBehaviour:
     _value: 0
   Thrust: 8000
   _Response: 0.5
-  _Axis: {x: 0, y: 0.01, z: 1}
+  _Axis: {x: 0, y: 0.1, z: 1}
+  _MaxAltitude: 15
 --- !u!114 &11456954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -788,7 +789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Pitch: 9000
   _Roll: 12000
-  _Slew: 1000
+  _Slew: 3000
   _Response: 3
   _DragRange: {x: 0.7, y: 0.05}
 --- !u!114 &11482610
@@ -881,7 +882,7 @@ CapsuleCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196218}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b98680d254cda4055a96459404455ea7, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.75
