@@ -789,9 +789,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Pitch: 16000
   _Roll: 12000
-  _Slew: 3400
+  _Slew: 5000
   _Response: 3
-  _DragRange: {x: 0.7, y: 0.05}
+  _SlewThreshold: 1
+  _LinearDragRange: {x: 0.1, y: 0.6}
+  _AngularDragRange: {x: 0.2, y: 0.9}
 --- !u!114 &11482610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -826,8 +828,8 @@ MonoBehaviour:
     _Friction: 0.1
     _value: 0
   _Roll: 6000
-  _Yaw: 30000
-  _Pitch: 1500
+  _Yaw: 40000
+  _Pitch: 15000
 --- !u!114 &11493468
 MonoBehaviour:
   m_ObjectHideFlags: 1
