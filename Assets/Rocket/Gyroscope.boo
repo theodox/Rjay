@@ -8,7 +8,9 @@ public class Gyroscope(HasHud):
     public _Roll = 50f
     public _Slew = 100f
     public _Response = 1
-    public _DragRange  = Vector2(.6, .1)
+    public _SlewThreshold = 1f
+    public _LinearDragRange  = Vector2(.1, .6)
+    public _AngularDragRange  = Vector2(.2, .9 )
     _rb as Rigidbody
     _xform as Transform
     xz_plane = Vector3(1,0,1)
@@ -30,18 +32,18 @@ public class Gyroscope(HasHud):
         pitch = ProjectAxis(forward, xz_plane)
 
 
-        travel = _rb.velocity.ScaleBy(xz_plane).normalized
-        if travel.magnitude < .1f:
-            travel = forward
+        if _rb.velocity.magnitude  > _SlewThreshold:
+            travel = _rb.velocity.ScaleBy(xz_plane).normalized
 
-        orient = forward.ScaleBy(xz_plane).normalized
-        slew = Vector3.Dot(travel, orient)
-        slew *= Sign(Vector3.Dot(travel, right.ScaleBy(xz_plane)))
-
+            orient = forward.ScaleBy(xz_plane).normalized
+            slew = 1- Vector3.Dot(travel, orient)
+            slew *= Sign(Vector3.Dot(travel, right.ScaleBy(xz_plane)))
+        else:
+            slew = 0f
 
         m = 1 - Clamp(Min(Abs(pitch), Abs(roll)), 0, 1)
-        _rb.angularDrag = Lerp(0.3f, 1f, m)
-        _rb.drag = Lerp(_DragRange.x, _DragRange.y, Abs(slew))
+        _rb.angularDrag = Lerp(_AngularDragRange.x, _AngularDragRange.y, m)
+        _rb.drag = Lerp(_LinearDragRange.x, _LinearDragRange.y, Abs(slew))
 
         t = Vector3 ( pitch * _Pitch, slew * _Slew, roll * _Roll * -1)
         _rb.AddTorque(t * Time.deltaTime)
