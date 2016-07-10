@@ -14,13 +14,14 @@ public class LineDrawer(MonoBehaviour):
         _Line.SetPosition(0, _Xform.position)
         if _Target:
             counter = 0
+            _Line.SetVertexCount(4)
+
             for c as ConfigurableJoint in  gameObject.GetComponents[of ConfigurableJoint]():
                 counter += 1
                 _Line.SetPosition(counter, _Target.TransformPoint(c.connectedAnchor))
 
             _Line.SetPosition(counter + 1, _Xform.position)
-            _Line.SetVertexCount(4)
 
         else:
-            _Line.SetPosition(1, _Xform.position)
             _Line.SetVertexCount(2)
+            _Line.SetPosition(1, _Xform.position)
