@@ -348,7 +348,7 @@ InputManager:
     negativeButton: 
     positiveButton: joystick button 8
     altNegativeButton: 
-    altPositiveButton: 2
+    altPositiveButton: 3
     gravity: 100
     dead: 0.1
     sensitivity: 2
@@ -364,7 +364,39 @@ InputManager:
     negativeButton: 
     positiveButton: joystick button 7
     altNegativeButton: 
+    altPositiveButton: 2
+    gravity: 100
+    dead: 0.1
+    sensitivity: 2
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 3
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: DefaultCamera
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 5
+    altNegativeButton: 
     altPositiveButton: 1
+    gravity: 100
+    dead: 0.1
+    sensitivity: 2
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 3
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: UndoCamera
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 9
+    altNegativeButton: 
+    altPositiveButton: 4
     gravity: 100
     dead: 0.1
     sensitivity: 2
