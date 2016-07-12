@@ -117,6 +117,7 @@ public class EffectPool(MonoBehaviour):
 		t.rotation = rotation
 		item.SetActive(true)
 		StartCoroutine(Remove(item))
+		return item
 
 	def Remove(g as GameObject) as IEnumerator[of object]:
 		yield WaitForSeconds(_Lifespan)

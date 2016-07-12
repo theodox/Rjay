@@ -18,5 +18,10 @@ class CrashHandler(MonoBehaviour):
         else:
             bootils.SendSystemMessage("OnScrape", collision)
 
+    def OnCollisionStay(collision as Collision):
+        _rigidbody.AddForce(
+            Vector3.up * 500, ForceMode.Force
+            )
+
     private def Crash() as IEnumerator:
         yield  WaitForSeconds(.2)

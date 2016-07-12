@@ -504,19 +504,19 @@ Prefab:
     m_Modifications:
     - target: {fileID: 448342, guid: d17a2bf57e8e546bd8407ba6957c04e1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 448342, guid: d17a2bf57e8e546bd8407ba6957c04e1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.8
+      value: 0.68
       objectReference: {fileID: 0}
     - target: {fileID: 448342, guid: d17a2bf57e8e546bd8407ba6957c04e1, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -69.83
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 448342, guid: d17a2bf57e8e546bd8407ba6957c04e1, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 448342, guid: d17a2bf57e8e546bd8407ba6957c04e1, type: 2}
       propertyPath: m_LocalRotation.y
@@ -528,7 +528,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 448342, guid: d17a2bf57e8e546bd8407ba6957c04e1, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071067
       objectReference: {fileID: 0}
     - target: {fileID: 448342, guid: d17a2bf57e8e546bd8407ba6957c04e1, type: 2}
       propertyPath: m_RootOrder
@@ -537,6 +537,10 @@ Prefab:
     - target: {fileID: 146346, guid: d17a2bf57e8e546bd8407ba6957c04e1, type: 2}
       propertyPath: m_Name
       value: effect standin
+      objectReference: {fileID: 0}
+    - target: {fileID: 146346, guid: d17a2bf57e8e546bd8407ba6957c04e1, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d17a2bf57e8e546bd8407ba6957c04e1, type: 2}
@@ -1237,26 +1241,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 19895272, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
-      propertyPath: CollisionModule.plane0
-      value: 
-      objectReference: {fileID: 251234191}
-    - target: {fileID: 11493468, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
-      propertyPath: _Prefab
-      value: 
-      objectReference: {fileID: 780078865}
-    - target: {fileID: 11457990, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
-      propertyPath: _Prefab
-      value: 
-      objectReference: {fileID: 780078865}
-    - target: {fileID: 11498826, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
-      propertyPath: _Chute
-      value: 
-      objectReference: {fileID: 1146558015}
     - target: {fileID: 2387650, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 939f7ee2a83004791907e127c64de56e, type: 2}
+    - target: {fileID: 11498826, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
+      propertyPath: _Chute
+      value: 
+      objectReference: {fileID: 1146558015}
+    - target: {fileID: 11457990, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
+      propertyPath: _Prefab
+      value: 
+      objectReference: {fileID: 780078865}
+    - target: {fileID: 11493468, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
+      propertyPath: _Prefab
+      value: 
+      objectReference: {fileID: 780078865}
+    - target: {fileID: 19895272, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
+      propertyPath: CollisionModule.plane0
+      value: 
+      objectReference: {fileID: 251234191}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 550bd9bdfea624d7d8582b6053cae941, type: 2}
   m_IsPrefabParent: 0
@@ -2521,5 +2525,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Prefab: {fileID: 1183286871}
-  _PoolSize: 10
-  _Lifespan: 0.2
+  _PoolSize: 8
+  _Lifespan: 2
+  _SmallParticleCount: 100
+  _LargeParticleCount: 200
+  _LargeThreshold: 50
